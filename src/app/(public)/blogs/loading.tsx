@@ -1,9 +1,6 @@
 import Loading from "@/components/ui/Loading";
-import React from "react";
 
-type Props = {};
-
-const LoadingBlogs: React.FC<Props> = () => {
+const BlogsLoadingPage = () => {
   return (
     <div className="py-24">
       <Loading />
@@ -11,4 +8,4 @@ const LoadingBlogs: React.FC<Props> = () => {
   );
 };
 
-export default LoadingBlogs;
+export default BlogsLoadingPage;

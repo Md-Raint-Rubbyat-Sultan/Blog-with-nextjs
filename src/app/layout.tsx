@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import AuthProvider from "@/providers/AuthProvider";
+import { Toaster } from "sonner";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -13,10 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: {
-    default: "Next Blog",
-    template: "%s | Next Blog",
-  },
+  title: "Next Blog",
   description: "A simple blog built with Next.js, Tailwind CSS, and shadcn/ui.",
 };
 
@@ -30,7 +29,10 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <AuthProvider>
+          <Toaster richColors position="top-center" />
+          {children}
+        </AuthProvider>
       </body>
     </html>
   );
